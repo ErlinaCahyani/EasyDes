@@ -6,14 +6,14 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Destino project">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
-<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
-<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
-<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
-<link href="plugins/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="styles/main_styles.css">
-<link rel="stylesheet" type="text/css" href="styles/responsive.css">
+<link rel="stylesheet" href="{{asset('template/styles/bootstrap4/bootstrap.min.css')}}">
+<link href="{{asset('template/plugins/font-awesome-4.7.0/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{{asset('template/plugins/OwlCarousel2-2.2.1/owl.carousel.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('template/plugins/OwlCarousel2-2.2.1/owl.theme.default.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('template/plugins/OwlCarousel2-2.2.1/animate.css')}}">
+<link href="{{asset('template/plugins/magnific-popup/magnific-popup.css')}}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{{asset('template/styles/main_styles.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('template/styles/responsive.css')}}">
 </head>
 <body>
 
@@ -32,7 +32,7 @@
 							<div class="logo">
 								<div>destino</div>
 								<div>travel agency</div>
-								<div class="logo_image"><img src="images/logo.png" alt=""></div>
+								<div class="logo_image"><img src="{{asset('template/images/logo.png')}}" alt=""></div>
 							</div>
 						</div>
 
@@ -40,19 +40,13 @@
 						<nav class="main_nav ml-auto">
 							<ul class="main_nav_list">
 								<li class="main_nav_item active"><a href="#">Home</a></li>
-								<li class="main_nav_item"><a href="about.html">About us</a></li>
-								<li class="main_nav_item"><a href="offers.html">Offers</a></li>
-								<li class="main_nav_item"><a href="news.html">News</a></li>
-								<li class="main_nav_item"><a href="contact.html">Contact</a></li>
+								<li class="main_nav_item"><a href="#find">Find</a></li>
 							</ul>
 						</nav>
 
 						<!-- Search -->
 						<div class="search">
-							<form action="#" class="search_form">
-								<input type="search" name="search_input" class="search_input ctrl_class" required="required" placeholder="Keyword">
-								<button type="submit" class="search_button ml-auto ctrl_class"><img src="images/search.png" alt=""></button>
-							</form>
+							<a href="#find"></a><button type="submit" class="search_button ml-auto"><img src="{{asset('template/images/search.png')}}" alt=""></button></a>
 						</div>
 
 						<!-- Hamburger -->
@@ -79,7 +73,7 @@
 				<div class="menu_search_form_container">
 					<form action="#" id="menu_search_form">
 						<input type="search" class="menu_search_input menu_mm">
-						<button id="menu_search_submit" class="menu_search_submit" type="submit"><img src="images/search_2.png" alt=""></button>
+						<button id="menu_search_submit" class="menu_search_submit" type="submit"><img src="{{asset('template/images/search_2.png')}}" alt=""></button>
 					</form>
 				</div>
 				<ul class="menu_list menu_mm">
@@ -112,7 +106,7 @@
 	<!-- Home -->
 
 	<div class="home">
-		<div class="home_background" style="background-image:url(images/home.jpg)"></div>
+		<div class="home_background" style="background-image:url({{asset('template/images/home.jpg')}})"></div>
 		<div class="home_content">
 			<div class="home_content_inner">
 				<div class="home_text_large">discover</div>
@@ -123,9 +117,9 @@
 
 	<!-- Find Form -->
 
-	<div class="find">
+	<div class="find" id="find">
 		<!-- Image by https://unsplash.com/@garciasaldana_ -->
-		<div class="find_background parallax-window" data-parallax="scroll" data-image-src="images/find.jpg" data-speed="0.8"></div>
+		<div class="find_background parallax-window" data-parallax="scroll" data-image-src="{{asset('template/images/find.jpg')}}" data-speed="0.8"></div>
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
@@ -189,7 +183,7 @@
 					<!-- Top Destination Item -->
 					<div class="top_item">
 						<a href="#">
-							<div class="top_item_image"><img src="images/top_1.jpg" alt="https://unsplash.com/@sgabriel"></div>
+							<div class="top_item_image"><img src="{{asset('template/images/top_1.jpg')}}" alt="https://unsplash.com/@sgabriel"></div>
 							<div class="top_item_content">
 								<div class="top_item_price">From $890</div>
 								<div class="top_item_text">Paris, France</div>
@@ -203,7 +197,7 @@
 					<!-- Top Destination Item -->
 					<div class="top_item">
 						<a href="#">
-							<div class="top_item_image"><img src="images/top_2.jpg" alt="https://unsplash.com/@jenspeter"></div>
+							<div class="top_item_image"><img src="{{asset('template/images/top_2.jpg')}}" alt="https://unsplash.com/@jenspeter"></div>
 							<div class="top_item_content">
 								<div class="top_item_price">From $890</div>
 								<div class="top_item_text">Italian Riviera</div>
@@ -217,7 +211,7 @@
 					<!-- Top Destination Item -->
 					<div class="top_item">
 						<a href="#">
-							<div class="top_item_image"><img src="images/top_3.jpg" alt="https://unsplash.com/@anikindimitry"></div>
+							<div class="top_item_image"><img src="{{asset('template/images/top_3.jpg')}}" alt="https://unsplash.com/@anikindimitry"></div>
 							<div class="top_item_content">
 								<div class="top_item_price">From $890</div>
 								<div class="top_item_text">Cinque Terre</div>
@@ -231,7 +225,7 @@
 					<!-- Top Destination Item -->
 					<div class="top_item">
 						<a href="#">
-							<div class="top_item_image"><img src="images/top_4.jpg" alt="https://unsplash.com/@hellolightbulb"></div>
+							<div class="top_item_image"><img src="{{asset('template/images/top_4.jpg')}}" alt="https://unsplash.com/@hellolightbulb"></div>
 							<div class="top_item_content">
 								<div class="top_item_price">From $890</div>
 								<div class="top_item_text">Santorini, Greece</div>
@@ -248,11 +242,11 @@
 
 	<div class="last">
 		<!-- Image by https://unsplash.com/@thanni -->
-		<div class="last_background parallax-window" data-parallax="scroll" data-image-src="images/last.jpg" data-speed="0.8"></div>
+		<div class="last_background parallax-window" data-parallax="scroll" data-image-src="{{asset('template/images/last.jpg')}}" data-speed="0.8"></div>
 
 		<div class="container">
 			<div class="row">
-				<div class="last_logo"><img src="images/last_logo.png" alt=""></div>
+				<div class="last_logo"><img src="{{asset('template/images/last_logo.png')}}" alt=""></div>
 				<div class="col-lg-6 last_col">
 					<div class="last_item">
 						<div class="last_item_content">
@@ -283,7 +277,7 @@
 
 	<div class="video_section d-flex flex-column align-items-center justify-content-center">
 		<!-- Image by https://unsplash.com/@peecho -->
-		<div class="video_background parallax-window" data-parallax="scroll" data-image-src="images/video.jpg" data-speed="0.8"></div>
+		<div class="video_background parallax-window" data-parallax="scroll" data-image-src="{{asset('template/images/video.jpg')}}" data-speed="0.8"></div>
 		<div class="video_content">
 			<div class="video_title">A day on the island</div>
 			<div class="video_subtitle">A trip organized by Destino's team</div>
@@ -320,7 +314,7 @@
 						<!-- Popular Item -->
 						<div class="popular_item">
 							<a href="offers.html">
-								<img src="images/popular_1.jpg" alt="image by Egzon Bytyqi">
+								<img src="{{asset('template/images/popular_1.jpg')}}" alt="image by Egzon Bytyqi">
 								<div class="popular_item_content">
 									<div class="popular_item_price">From $890</div>
 									<div class="popular_item_title">Turkey</div>
@@ -331,7 +325,7 @@
 						<!-- Popular Item -->
 						<div class="popular_item">
 							<a href="offers.html">
-								<img src="images/popular_2.jpg" alt="https://unsplash.com/@michael75">
+								<img src="{{asset('template/images/popular_2.jpg')}}" alt="https://unsplash.com/@michael75">
 								<div class="popular_item_content">
 									<div class="popular_item_price">From $890</div>
 									<div class="popular_item_title">Hawai</div>
@@ -342,7 +336,7 @@
 						<!-- Popular Item -->
 						<div class="popular_item">
 							<a href="offers.html">
-								<img src="images/popular_3.jpg" alt="https://unsplash.com/@sapegin">
+								<img src="{{asset('template/images/popular_3.jpg')}}" alt="https://unsplash.com/@sapegin">
 								<div class="popular_item_content">
 									<div class="popular_item_price">From $890</div>
 									<div class="popular_item_title">Ireland</div>
@@ -353,7 +347,7 @@
 						<!-- Popular Item -->
 						<div class="popular_item">
 							<a href="offers.html">
-								<img src="images/popular_4.jpg" alt="https://unsplash.com/@kensuarez">
+								<img src="{{asset('template/images/popular_4.jpg')}}" alt="https://unsplash.com/@kensuarez">
 								<div class="popular_item_content">
 									<div class="popular_item_price">From $890</div>
 									<div class="popular_item_title">Thailand</div>
@@ -364,7 +358,7 @@
 						<!-- Popular Item -->
 						<div class="popular_item">
 							<a href="offers.html">
-								<img src="images/popular_5.jpg" alt="https://unsplash.com/@noahbasle">
+								<img src="{{asset('template/images/popular_5.jpg')}}" alt="https://unsplash.com/@noahbasle">
 								<div class="popular_item_content">
 									<div class="popular_item_price">From $890</div>
 									<div class="popular_item_title">Croatia</div>
@@ -375,7 +369,7 @@
 						<!-- Popular Item -->
 						<div class="popular_item">
 							<a href="offers.html">
-								<img src="images/popular_6.jpg" alt="https://unsplash.com/@seb">
+								<img src="{{asset('template/images/popular_6.jpg')}}" alt="https://unsplash.com/@seb">
 								<div class="popular_item_content">
 									<div class="popular_item_price">From $890</div>
 									<div class="popular_item_title">Bali</div>
@@ -386,7 +380,7 @@
 						<!-- Popular Item -->
 						<div class="popular_item">
 							<a href="offers.html">
-								<img src="images/popular_7.jpg" alt="https://unsplash.com/@nevenkrcmarek">
+								<img src="{{asset('template/images/popular_7.jpg')}}" alt="https://unsplash.com/@nevenkrcmarek">
 								<div class="popular_item_content">
 									<div class="popular_item_price">From $890</div>
 									<div class="popular_item_title">France</div>
@@ -397,7 +391,7 @@
 						<!-- Popular Item -->
 						<div class="popular_item">
 							<a href="offers.html">
-								<img src="images/popular_8.jpg" alt="https://unsplash.com/@bergeryap87">
+								<img src="{{asset('template/images/popular_8.jpg')}}" alt="https://unsplash.com/@bergeryap87">
 								<div class="popular_item_content">
 									<div class="popular_item_price">From $890</div>
 									<div class="popular_item_title">Vietnam</div>
@@ -431,7 +425,7 @@
 					<!-- Special Offers Item -->
 					<div class="owl-item">
 						<div class="special_item">
-							<div class="special_item_background"><img src="images/special_1.jpg" alt="https://unsplash.com/@garciasaldana_"></div>
+							<div class="special_item_background"><img src="{{asset('template/images/special_1.jpg')}}" alt="https://unsplash.com/@garciasaldana_"></div>
 							<div class="special_item_content text-center">
 								<div class="special_category">Visiting</div>
 								<div class="special_title"><a href="offers.html">Indonesia</a></div>
@@ -442,7 +436,7 @@
 					<!-- Special Offers Item -->
 					<div class="owl-item">
 						<div class="special_item d-flex flex-column align-items-center justify-content-center">
-							<div class="special_item_background"><img src="images/special_2.jpg" alt="https://unsplash.com/@varshesh"></div>
+							<div class="special_item_background"><img src="{{asset('template/images/special_2.jpg')}}" alt="https://unsplash.com/@varshesh"></div>
 							<div class="special_item_content text-center">
 								<div class="special_category">Culture</div>
 								<div class="special_title"><a href="offers.html">India</a></div>
@@ -453,7 +447,7 @@
 					<!-- Special Offers Item -->
 					<div class="owl-item">
 						<div class="special_item d-flex flex-column align-items-center justify-content-center">
-							<div class="special_item_background"><img src="images/special_3.jpg" alt="https://unsplash.com/@paulgilmore_"></div>
+							<div class="special_item_background"><img src="{{asset('template/images/special_3.jpg')}}" alt="https://unsplash.com/@paulgilmore_"></div>
 							<div class="special_item_content text-center">
 								<div class="special_category">Sunbathing</div>
 								<div class="special_title"><a href="offers.html">Thailand</a></div>
@@ -464,7 +458,7 @@
 					<!-- Special Offers Item -->
 					<div class="owl-item">
 						<div class="special_item d-flex flex-column align-items-center justify-content-center">
-							<div class="special_item_background"><img src="images/special_4.jpg" alt="https://unsplash.com/@hellolightbulb"></div>
+							<div class="special_item_background"><img src="{{asset('template/images/special_4.jpg')}}" alt="https://unsplash.com/@hellolightbulb"></div>
 							<div class="special_item_content text-center">
 								<div class="special_category">Visiting</div>
 								<div class="special_title"><a href="offers.html">Bali</a></div>
@@ -475,7 +469,7 @@
 					<!-- Special Offers Item -->
 					<div class="owl-item">
 						<div class="special_item d-flex flex-column align-items-center justify-content-center">
-							<div class="special_item_background"><img src="images/special_5.jpg" alt="https://unsplash.com/@dnevozhai"></div>
+							<div class="special_item_background"><img src="{{asset('template/images/special_5.jpg')}}" alt="https://unsplash.com/@dnevozhai"></div>
 							<div class="special_item_content text-center">
 								<div class="special_category">Visiting</div>
 								<div class="special_title"><a href="offers.html">France</a></div>
@@ -486,7 +480,7 @@
 				</div>
 
 				<div class="special_slider_nav d-flex flex-column align-items-center justify-content-center">
-					<img src="images/special_slider.png" alt="">
+					<img src="{{asset('template/images/special_slider.png')}}" alt="">
 				</div>
 			</div>
 		</div>
@@ -496,7 +490,7 @@
 
 	<div class="newsletter">
 		<!-- Image by https://unsplash.com/@garciasaldana_ -->
-		<div class="newsletter_background" style="background-image:url(images/newsletter.jpg)"></div>
+		<div class="newsletter_background" style="background-image:url({{asset('template/images/newsletter.jpg')}})"></div>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-10 offset-lg-1">
@@ -530,7 +524,7 @@
 							<div class="logo">
 								<div>destino</div>
 								<div>travel agency</div>
-								<div class="logo_image"><img src="images/logo.png" alt=""></div>
+								<div class="logo_image"><img src="{{asset('template/images/logo.png')}}" alt=""></div>
 							</div>
 						</div>
 						<div class="footer_about_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pulvinar sed mauris eget tincidunt. Sed lectus nulla, tempor vel eleifend quis, tempus rut rum metus. Pellentesque ultricies enim eu quam fermentum hendrerit.</div>
@@ -548,7 +542,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 							<!-- Footer Latest Post -->
 							<div class="footer_latest_item">
-								<div class="footer_latest_image"><img src="images/latest_1.jpg" alt="https://unsplash.com/@peecho"></div>
+								<div class="footer_latest_image"><img src="{{asset('template/images/latest_1.jpg')}}" alt="https://unsplash.com/@peecho"></div>
 								<div class="footer_latest_item_content">
 									<div class="footer_latest_item_title"><a href="news.html">Brazil Summer</a></div>
 									<div class="footer_latest_item_date">Jan 09, 2018</div>
@@ -557,7 +551,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 							<!-- Footer Latest Post -->
 							<div class="footer_latest_item">
-								<div class="footer_latest_image"><img src="images/latest_2.jpg" alt="https://unsplash.com/@sanfrancisco"></div>
+								<div class="footer_latest_image"><img src="{{asset('template/images/latest_2.jpg')}}" alt="https://unsplash.com/@sanfrancisco"></div>
 								<div class="footer_latest_item_content">
 									<div class="footer_latest_item_title"><a href="news.html">A perfect vacation</a></div>
 									<div class="footer_latest_item_date">Jan 09, 2018</div>
@@ -591,13 +585,13 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	</footer>
 </div>
 
-<script src="js/jquery-3.2.1.min.js"></script>
-<script src="styles/bootstrap4/popper.js"></script>
-<script src="styles/bootstrap4/bootstrap.min.js"></script>
-<script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
-<script src="plugins/easing/easing.js"></script>
-<script src="plugins/parallax-js-master/parallax.min.js"></script>
-<script src="plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
-<script src="js/custom.js"></script>
+<script src="{{asset('template/js/jquery-3.2.1.min.js')}}"></script>
+<script src="{{asset('template/styles/bootstrap4/popper.js')}}"></script>
+<script src="{{asset('template/styles/bootstrap4/bootstrap.min.js')}}"></script>
+<script src="{{asset('template/plugins/OwlCarousel2-2.2.1/owl.carousel.js')}}"></script>
+<script src="{{asset('template/plugins/easing/easing.js')}}"></script>
+<script src="{{asset('template/plugins/parallax-js-master/parallax.min.js')}}"></script>
+<script src="{{asset('template/plugins/magnific-popup/jquery.magnific-popup.min.js')}}"></script>
+<script src="{{asset('template/js/custom.js')}}"></script>
 </body>
 </html>

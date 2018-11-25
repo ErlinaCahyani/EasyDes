@@ -7,8 +7,9 @@
 1. Vars and Inits
 2. Set Header
 3. Initialize Hamburger
-4. Init Parallax
-5. Init Search
+4. Init Special Slider
+5. Init Video
+6. Init Search
 
 
 ******************************/
@@ -27,7 +28,6 @@ $(document).ready(function()
 	var hamb = $('.hamburger');
 	var hambActive = false;
 	var menuActive = false;
-	var ctrl = new ScrollMagic.Controller();
 
 	setHeader();
 
@@ -42,8 +42,9 @@ $(document).ready(function()
 	});
 
 	initHamburger();
-	initParallax();
-	initSearch();
+	initSpecialSlider();
+	initVideo();
+	// initSearch();
 
 	/* 
 
@@ -75,10 +76,10 @@ $(document).ready(function()
 				header.removeClass('scrolled');
 			}
 		}
-		if(window.innerWidth > 991 && menuActive)
-		{
-			closeMenu();
-		}
+		// if(window.innerWidth > 991 && menuActive)
+		// {
+		// 	closeMenu();
+		// }
 	}
 
 	/* 
@@ -138,53 +139,81 @@ $(document).ready(function()
 
 	/* 
 
-	4. Init Parallax
+	4. Set Header
 
 	*/
 
-	function initParallax()
+	function initSpecialSlider()
 	{
-		// Add parallax effect to every element with class prlx
-		// Add class prlx_parent to the parent of the element
-		if($('.prlx_parent').length && $('.prlx').length)
+		if($('.special_slider').length)
 		{
-			var elements = $('.prlx_parent');
-
-			elements.each(function()
+			var specialSlider = $('.special_slider');
+			specialSlider.owlCarousel(
 			{
-				var ele = this;
-				var bcg = $(ele).find('.prlx');
+				loop:true,
+				autoplay:false,
+				center:true,
+				stagePadding:190,
+				margin:5,
+				nav:false,
+				dots:false,
+				smartSpeed:700,
+				responsive:
+				{
+					0:{items:1,margin:5,stagePadding:0},
+					992:{items:2,margin:5,stagePadding:130},
+					1280:{items:3,margin:5,stagePadding:190}
+				}
+			});
+		}
 
-				var slideParallaxScene = new ScrollMagic.Scene({
-			        triggerElement: ele,
-			        triggerHook: 1,
-			        duration: "200%"
-			    })
-			    .setTween(TweenMax.from(bcg, 1, {y: '-30%', ease:Power0.easeNone}))
-			    .addTo(ctrl);
+		if($('.special_slider_nav').length)
+		{
+			var next = $('.special_slider_nav');
+			next.on('click', function()
+			{
+				specialSlider.trigger('next.owl.carousel');
 			});
 		}
 	}
 
 	/* 
 
-	5. Init Search
+	5. Init Video
 
 	*/
 
-	function initSearch()
+	function initVideo()
 	{
-		if($('.search').length)
-		{
-			var search = $('.search');
-			search.on('click', function(e)
-			{
-				var target = $(e.target);
-				if(!target.hasClass('ctrl_class'))
-				{
-					$(this).toggleClass('active');
-				}
-			});
-		}
+		$('.video').magnificPopup({
+          disableOn: 700,
+          type: 'iframe',
+          mainClass: 'mfp-fade',
+          removalDelay: 160,
+          preloader: false,
+          fixedContentPos: false
+        });
 	}
+
+	/* 
+
+	6. Init Search
+
+	*/
+
+	// function initSearch()
+	// {
+	// 	if($('.search').length)
+	// 	{
+	// 		var search = $('.search');
+	// 		search.on('click', function(e)
+	// 		{
+	// 			var target = $(e.target);
+	// 			if(!target.hasClass('ctrl_class'))
+	// 			{
+	// 				$(this).toggleClass('active');
+	// 			}
+	// 		});
+	// 	}
+	// }
 });
