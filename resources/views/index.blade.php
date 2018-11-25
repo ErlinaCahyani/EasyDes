@@ -18,7 +18,7 @@
 <body>
 
 <div class="super_container">
-	
+
 	<!-- Header -->
 
 	<header class="header">
@@ -85,7 +85,7 @@
 				</ul>
 
 				<!-- Menu Social -->
-				
+
 				<div class="menu_social_container menu_mm">
 					<ul class="menu_social menu_mm">
 						<li class="menu_social_item menu_mm"><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
@@ -102,7 +102,7 @@
 		</div>
 
 	</div>
-	
+
 	<!-- Home -->
 
 	<div class="home">
@@ -127,7 +127,7 @@
 				</div>
 				<div class="col-12">
 					<div class="find_form_container">
-						<form action="#" id="find_form" class="find_form d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-md-between justify-content-start flex-wrap">
+						<form action="{{url('/find')}}" id="find_form" class="find_form d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-md-between justify-content-start flex-wrap">
 							<div class="find_item">
 								<div>Destination:</div>
 								<input type="text" class="destination find_input" required="required" placeholder="Keyword here">
@@ -163,6 +163,26 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- Top Destinations -->
+	<?php
+		if(isset($result)){
+			?><table>
+			<?php foreach($result as $tweet) { ?>
+				<tr>
+					<td valign="top"><img src="<?php echo $tweet->user->profile_image_url; ?>" height="50px"></td>
+					<td>
+						<b><?php echo $tweet->user->screen_name; ?></b><br>
+						<?php echo $tweet->created_at; ?><br>
+						<?php echo $tweet->text; ?><br>
+						<br><br>
+					</td>
+				</tr>
+			<?php } ?>
+			</table>
+		<?php } ?>
+
+
 
 	<!-- Top Destinations -->
 
@@ -230,7 +250,7 @@
 								<div class="top_item_price">From $890</div>
 								<div class="top_item_text">Santorini, Greece</div>
 							</div>
-						</a>	
+						</a>
 					</div>
 				</div>
 
@@ -310,7 +330,7 @@
 			<div class="row">
 				<div class="col">
 					<div class="popular_content d-flex flex-md-row flex-column flex-wrap align-items-md-center align-items-start justify-content-md-between justify-content-start">
-						
+
 						<!-- Popular Item -->
 						<div class="popular_item">
 							<a href="offers.html">
@@ -319,7 +339,7 @@
 									<div class="popular_item_price">From $890</div>
 									<div class="popular_item_title">Turkey</div>
 								</div>
-							</a>	
+							</a>
 						</div>
 
 						<!-- Popular Item -->
@@ -330,7 +350,7 @@
 									<div class="popular_item_price">From $890</div>
 									<div class="popular_item_title">Hawai</div>
 								</div>
-							</a>	
+							</a>
 						</div>
 
 						<!-- Popular Item -->
@@ -341,7 +361,7 @@
 									<div class="popular_item_price">From $890</div>
 									<div class="popular_item_title">Ireland</div>
 								</div>
-							</a>	
+							</a>
 						</div>
 
 						<!-- Popular Item -->
@@ -385,7 +405,7 @@
 									<div class="popular_item_price">From $890</div>
 									<div class="popular_item_title">France</div>
 								</div>
-							</a>	
+							</a>
 						</div>
 
 						<!-- Popular Item -->
@@ -421,7 +441,7 @@
 		<div class="special_content">
 			<div class="special_slider_container">
 				<div class="owl-carousel owl-theme special_slider">
-					
+
 					<!-- Special Offers Item -->
 					<div class="owl-item">
 						<div class="special_item">
