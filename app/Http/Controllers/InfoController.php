@@ -50,6 +50,7 @@ class InfoController extends Controller
             $content= file_get_contents($url);
         
             $result = json_decode($content);
+            return view('result-info',compact('result'));
         } else if($nama_kab == "kjs"){
             $kab = rawurlencode("Kota Jakarta Selatan");
             $url = 'http://dev.farizdotid.com/api/instansi/daftar_instansi/'.$kab;
