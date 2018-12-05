@@ -14,6 +14,42 @@
 <link href="{{asset('template/plugins/magnific-popup/magnific-popup.css')}}" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="{{asset('template/styles/main_styles.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('template/styles/responsive.css')}}">
+<style media="screen">
+	* {
+	box-sizing: border-box;
+	}
+	body {
+	margin: 0;
+	}
+	.row1{
+	display:flex;
+	justify-content:flex-start;
+	align-items:stretch;
+	flex-wrap:nowrap;
+	padding:100px 10px 10px 10px;
+	}
+	.cell1{
+	min-height:75px;
+	flex-grow:1;
+	flex-basis:100%;
+	}
+	#i52ahj{
+	height:700px;
+	}
+	#iristp{
+	flex-basis:500px;
+	border: 1 px;
+	border-style: solid;
+	overflow: auto;
+	height: 700 px;
+	}
+	@media (max-width: 768px){
+	.row{
+	flex-wrap:wrap;
+	}
+}
+
+</style>
 </head>
 <body>
 
@@ -130,7 +166,7 @@
 						<form action="{{url('/find')}}" id="find_form" class="find_form d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-md-between justify-content-start flex-wrap">
 							<div class="find_item">
 								<div>Destination:</div>
-								<input type="text" class="destination find_input" required="required" placeholder="Keyword here">
+								<input type="text" name="tujuan" value="{{ old('destination') }}" class="destination find_input" required="required" placeholder="Keyword here">
 							</div>
 							<div class="find_item">
 								<div>Adventure type:</div>
@@ -164,25 +200,33 @@
 		</div>
 	</div>
 
-	<!-- Top Destinations -->
+	<!-- kodingnya -->
 	<?php
-		if(isset($result)){
-			?><table>
-			<?php foreach($result as $tweet) { ?>
-				<tr>
-					<td valign="top"><img src="<?php echo $tweet->user->profile_image_url; ?>" height="50px"></td>
-					<td>
-						<b><?php echo $tweet->user->screen_name; ?></b><br>
-						<?php echo $tweet->created_at; ?><br>
-						<?php echo $tweet->text; ?><br>
-						<br><br>
-					</td>
-				</tr>
-			<?php } ?>
-			</table>
-		<?php } ?>
+		if(isset($result)){?>
+	<div class="row1" id="i52ahj">
+	  <div class="cell1" id="iq88sw">
 
-
+	  </div>
+	  <div class="cell1" id="iristp">
+		  <?php
+			  if(isset($result)){?>
+				  <table>
+				  <?php foreach($result as $tweet) { ?>
+					  <tr>
+						  <td valign="top"><img src="<?php echo $tweet->user->profile_image_url; ?>" height="50px"></td>
+						  <td>
+							  <b><?php echo $tweet->user->screen_name; ?></b><br>
+							  <?php echo $tweet->created_at; ?><br>
+							  <?php echo $tweet->text; ?><br>
+							  <br><br>
+						  </td>
+					  </tr>
+				  <?php } ?>
+				  </table>
+			  <?php } ?>
+	  </div>
+	</div>
+<?php } ?>
 
 	<!-- Top Destinations -->
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use App\Classes\TwitterAPIExchange;
 
 class FindController extends Controller
@@ -21,7 +22,8 @@ class FindController extends Controller
         $requestMethod = 'GET';
 
         /** GET fields required by the URL above. See relevant docs as above **/
-        $getfield = '?q=indonesia';
+        $destination = Input::get('tujuan');
+        $getfield = '?q='.$destination;
 
         /** Perform a GET request and echo the response **/
         $twitter = new TwitterAPIExchange($settings);
