@@ -16,3 +16,5 @@ Route::get('/', function () {
 });
 
 Route::get('/find', 'FindController@find');
+Route::get('/info', 'InfoController@find');
+Route::get('/fi', 'InfoController@result');
