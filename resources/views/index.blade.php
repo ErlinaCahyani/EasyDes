@@ -50,6 +50,28 @@
 }
 
 </style>
+
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+	<script>
+		var latitude = <?php if (isset($lat)){echo $lat;} ?>;
+		var longitude = <?php if (isset($lng)){echo $lng;} ?>;
+	function initialize() {
+	  var options = {
+	    center:new google.maps.LatLng(latitude, longitude), // longitude latitude bandung
+	    zoom:5, 
+	    mapTypeId:google.maps.MapTypeId.ROADMAP // Tipe ROADMAP
+	  };
+	  // create map object
+	  var map=new google.maps.Map(document.getElementById("googleMap"),options);
+	  var marker = new google.maps.Marker({
+	      position: new google.maps.LatLng(latitude, longitude), // longitude latitude
+	      map: map,
+	  });
+	}
+	// membuat Event Listener untuk memanggil fungsi initialize pada saat halaman selesai di load
+	google.maps.event.addDomListener(window, 'load', initialize);
+	</script>
+
 </head>
 <body>
 
@@ -162,35 +184,18 @@
 					<div class="find_title text-center">Find the Adventure of a lifetime</div>
 				</div>
 				<div class="col-12">
+					<div class="find_title text-center"><?php if (isset($weather)) {
+						echo $weather->item->condition->text." (".$weather->item->condition->temp."F)";
+						echo "<br>".$weather->location->city;
+					}
+					?></div>
+				</div>
+				<div class="col-12">
 					<div class="find_form_container">
 						<form action="{{url('/find')}}" id="find_form" class="find_form d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-md-between justify-content-start flex-wrap">
 							<div class="find_item">
 								<div>Destination:</div>
 								<input type="text" name="tujuan" value="{{ old('destination') }}" class="destination find_input" required="required" placeholder="Keyword here">
-							</div>
-							<div class="find_item">
-								<div>Adventure type:</div>
-								<select name="adventure" id="adventure" class="dropdown_item_select find_input">
-									<option>Categories</option>
-									<option>Categories</option>
-									<option>Categories</option>
-								</select>
-							</div>
-							<div class="find_item">
-								<div>Min price</div>
-								<select name="min_price" id="min_price" class="dropdown_item_select find_input">
-									<option>&nbsp;</option>
-									<option>Price</option>
-									<option>Price</option>
-								</select>
-							</div>
-							<div class="find_item">
-								<div>Max price</div>
-								<select name="max_price" id="max_price" class="dropdown_item_select find_input">
-									<option>&nbsp;</option>
-									<option>Price</option>
-									<option>Price</option>
-								</select>
 							</div>
 							<button class="button find_button">Find</button>
 						</form>
@@ -199,19 +204,19 @@
 			</div>
 		</div>
 	</div>
-
-	<!-- kodingnya -->
-	<?php
-		if(isset($result)){?>
 	<div class="row1" id="i52ahj">
 	  <div class="cell1" id="iq88sw">
-
+	  	<div id="googleMap" style="width:900px;height:500px;"></div>
 	  </div>
 	  <div class="cell1" id="iristp">
 		  <?php
-			  if(isset($result)){?>
+		  if (isset($data['weather'])) {
+		  	echo $weather->item->condition->text." (".$weather->item->condition->temp."F)";
+						echo "<br>".$weather->location->city;
+		  }
+			  if(isset($data['result'])){?>
 				  <table>
-				  <?php foreach($result as $tweet) { ?>
+				  <?php foreach($data['result'] as $tweet) { ?>
 					  <tr>
 						  <td valign="top"><img src="<?php echo $tweet->user->profile_image_url; ?>" height="50px"></td>
 						  <td>
@@ -226,7 +231,6 @@
 			  <?php } ?>
 	  </div>
 	</div>
-<?php } ?>
 
 
 	<!--  -->
@@ -317,41 +321,6 @@
 					</div>
 				</div>
 
-			</div>
-		</div>
-	</div>
-
-	<!-- Last -->
-
-	<div class="last">
-		<!-- Image by https://unsplash.com/@thanni -->
-		<div class="last_background parallax-window" data-parallax="scroll" data-image-src="{{asset('template/images/last.jpg')}}" data-speed="0.8"></div>
-
-		<div class="container">
-			<div class="row">
-				<div class="last_logo"><img src="{{asset('template/images/last_logo.png')}}" alt=""></div>
-				<div class="col-lg-6 last_col">
-					<div class="last_item">
-						<div class="last_item_content">
-							<div class="last_subtitle">maldive</div>
-							<div class="last_percent">50%</div>
-							<div class="last_title">Last Minute Offer</div>
-							<div class="last_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pulvinar sed mauris eget tincidunt. Sed lectus nulla, tempor vel.</div>
-							<div class="button last_button"><a href="offers.html">See Offer</a></div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-6 last_col">
-					<div class="last_item">
-						<div class="last_item_content">
-							<div class="last_subtitle">bali</div>
-							<div class="last_percent">38%</div>
-							<div class="last_title">Last Minute Offer</div>
-							<div class="last_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pulvinar sed mauris eget tincidunt. Sed lectus nulla, tempor vel.</div>
-							<div class="button last_button"><a href="offers.html">See Offer</a></div>
-						</div>
-					</div>
-				</div>
 			</div>
 		</div>
 	</div>

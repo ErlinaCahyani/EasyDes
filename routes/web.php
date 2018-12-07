@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/','FindController@index');
 
 Route::get('/find', 'FindController@find');
 Route::get('/info', 'InfoController@find');
