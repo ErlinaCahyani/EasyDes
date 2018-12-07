@@ -21,12 +21,16 @@
 	body {
 	margin: 0;
 	}
+	#googleMap {
+		height: 100%;
+		width: 100% !important;
+	}
 	.row1{
 	display:flex;
 	justify-content:flex-start;
 	align-items:stretch;
 	flex-wrap:nowrap;
-	padding:100px 10px 10px 10px;
+	padding:100px 3em 6em;
 	}
 	.cell1{
 	min-height:75px;
@@ -212,7 +216,7 @@
 	</div>
 	<div class="row1" id="i52ahj">
 	  <div class="cell1" id="iq88sw">
-	  	<div id="googleMap" style="width:900px;height:500px;"></div>
+	  	<div id="googleMap" style=""></div>
 	  </div>
 	  <div class="cell1" id="iristp">
 		  <?php
