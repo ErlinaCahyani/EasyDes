@@ -37,11 +37,16 @@
 	height:700px;
 	}
 	#iristp{
-	flex-basis:500px;
-	border: 1 px;
-	border-style: solid;
+	flex-basis:600px;
 	overflow: auto;
-	height: 700 px;
+	height: 700px;
+    margin: 2em;
+    border:  none;
+    border-left: 1px solid #e2dede;
+    padding: 1em;
+	}
+	table td {
+		padding: 0.5em;
 	}
 	@media (max-width: 768px){
 	.row{

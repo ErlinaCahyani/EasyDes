@@ -6,7 +6,7 @@
 			<div class="row">
 				<div class="col">
 					<div class="section_title">
-						<div><a href="info">Kembali ke pencarian instansi</a></div>
+						<div><a href="info"> <i class="fa fa-chevron-left"></i> Kembali ke pencarian instansi</a></div>
 					</div>
 				</div>
 			</div>
@@ -22,7 +22,7 @@
             </div>
           </div>
         </div>
-        <div class="row">
+        <div class="">
           <div class="my-2">
             Nama Kabupaten : <?php echo $result->daftar_instansi[0]->nama_kabupaten ?>
           </div>
