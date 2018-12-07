@@ -1,14 +1,13 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
-
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+## API YANG DIGUNAKAN :
+1. Yahoo Weather API : untuk menampilkan cuaca
+2. Twitter API : untuk menampilkan post twitter
+3. GeoCoder API : untuk mencari latitude dan longitude lokasi
+4. Ipify API : untuk mengambil Public IP Address dan menampilkan detail lokasinya
+5. Google Maps API : untuk menampilkan peta lokasi dan pin lokasi
+6. WSE API : untuk menghitung estimasi jarak dan waktu tempuh lokasi
 
 ## NOTE
-Untuk API dari wse.api.here.com yang digunakan untuk melakukan penghitungan jarak dan waktu, ada limitnya (10 kali). sehingga tidak dapat dicoba terus menerus.
+Untuk API dari wse.api.here.com yang digunakan untuk melakukan penghitungan jarak dan waktu, ada limitnya (10 kali). sehingga tidak dapat dicoba terus menerus, tampilan dan hasil akan seperti dibawah ini : 
 
 <img src="https://github.com/ErlinaCahyani/EasyDes/blob/master/find1.PNG">
 
