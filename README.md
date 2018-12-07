@@ -10,8 +10,8 @@
 ## NOTE
 Untuk API dari wse.api.here.com yang digunakan untuk melakukan penghitungan jarak dan waktu, ada limitnya (10 kali). sehingga tidak dapat dicoba terus menerus.
 
-<img src="find1.png">
+<img src="https://github.com/ErlinaCahyani/EasyDes/blob/master/find1.PNG">
 
 hasil :
 
-<img src="find2.png">
+<img src="https://github.com/ErlinaCahyani/EasyDes/blob/master/find2.PNG">
