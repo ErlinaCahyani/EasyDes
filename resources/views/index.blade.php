@@ -34,14 +34,20 @@
 	flex-basis:100%;
 	}
 	#i52ahj{
+  background-color: #fff8f8;
+  display: flex;
 	height:700px;
 	}
+
+	td {
+			padding: 0.5em;
+	}
 	#iristp{
-	flex-basis:500px;
-	border: 1 px;
-	border-style: solid;
-	overflow: auto;
-	height: 700 px;
+		flex-basis:500px;
+		overflow: auto;
+		border: none;
+		background-color: white;
+		padding: 1em;
 	}
 	@media (max-width: 768px){
 	.row{
