@@ -228,6 +228,25 @@
 	</div>
 <?php } ?>
 
+
+	<!--  -->
+	<div class="top pb-0">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="section_title text-center">
+						<h2>Cari info instansi?</h2>
+						<div>Looking for Police stations or hospitals? hit the button below</div>
+							<a href="info" class="mt-4 button find_button" style="color: white">INFO</a>
+					</div>
+				</div>
+			</div>
+			<div class="row top_content">
+			</div>
+		</div>
+	</div>
+	<!-- / -->
+
 	<!-- Top Destinations -->
 
 	<div class="top">
