@@ -190,14 +190,14 @@
 					}
 					?></div>
 				</div>
-				<div class="col-12">
+				<div class="col-md-6 offset-md-3">
 					<div class="find_form_container">
 						<form action="{{url('/find')}}" id="find_form" class="find_form d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-md-between justify-content-start flex-wrap">
-							<div class="find_item">
+							<div class="find_item col-md-8">
 								<div>Destination:</div>
 								<input type="text" name="tujuan" value="{{ old('destination') }}" class="destination find_input" required="required" placeholder="Keyword here">
 							</div>
-							<button class="button find_button">Find</button>
+							<button class="col-md-4 button find_button">Find</button>
 						</form>
 					</div>
 				</div>
@@ -579,7 +579,7 @@
 								<div class="logo_image"><img src="{{asset('template/images/logo.png')}}" alt=""></div>
 							</div>
 						</div>
-						<div class="footer_about_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pulvinar sed mauris eget tincidunt. Sed lectus nulla, tempor vel eleifend quis, tempus rut rum metus. Pellentesque ultricies enim eu quam fermentum hendrerit.</div>
+						<div class="footer_about_text">Konsultan perjalanan terbaik. Destino menyediakan beragam informasi yang sering dibutuhkan untuk para traveler sebelum dan saat melakukan perjalanan. Seperti informasi lokasi, cuaca, tempat instansi (rumah sakit, kantor polisi) serta memantau trending dunia maya berdasarkan keyword yang diberikan</div>
 						<div class="copyright"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>

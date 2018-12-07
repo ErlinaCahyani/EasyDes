@@ -75,7 +75,7 @@
 						<!-- Main Navigation -->
 						<nav class="main_nav ml-auto">
 							<ul class="main_nav_list">
-								<li class="main_nav_item active"><a href="#">Home</a></li>
+								<li class="main_nav_item active"><a href="./">Home</a></li>
 								<li class="main_nav_item"><a href="#find">Find</a></li>
 							</ul>
 						</nav>
@@ -170,7 +170,7 @@
 								<div class="logo_image"><img src="{{asset('template/images/logo.png')}}" alt=""></div>
 							</div>
 						</div>
-						<div class="footer_about_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pulvinar sed mauris eget tincidunt. Sed lectus nulla, tempor vel eleifend quis, tempus rut rum metus. Pellentesque ultricies enim eu quam fermentum hendrerit.</div>
+						<div class="footer_about_text">Konsultan perjalanan terbaik. Destino menyediakan beragam informasi yang sering dibutuhkan untuk para traveler sebelum dan saat melakukan perjalanan. Seperti informasi lokasi, cuaca, tempat instansi (rumah sakit, kantor polisi) serta memantau trending dunia maya berdasarkan keyword yang diberikan</div>
 						<div class="copyright"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
