@@ -67,7 +67,6 @@
 						<div class="logo_container">
 							<div class="logo">
 								<div>destino</div>
-								<div>travel agency</div>
 								<div class="logo_image"><img src="{{asset('template/images/logo.png')}}" alt=""></div>
 							</div>
 						</div>
@@ -75,8 +74,9 @@
 						<!-- Main Navigation -->
 						<nav class="main_nav ml-auto">
 							<ul class="main_nav_list">
-								<li class="main_nav_item active"><a href="./">Home</a></li>
-								<li class="main_nav_item"><a href="#find">Find</a></li>
+								<li class="main_nav_item"><a href="{{url('/')}}">Home</a></li>
+								<li class="main_nav_item"><a href="{{url('/')}}">Find</a></li>
+								<li class="main_nav_item active"><a href="{{url('/info')}}">Info</a></li>
 							</ul>
 						</nav>
 
@@ -166,7 +166,6 @@
 						<div class="logo_container">
 							<div class="logo">
 								<div>destino</div>
-								<div>travel agency</div>
 								<div class="logo_image"><img src="{{asset('template/images/logo.png')}}" alt=""></div>
 							</div>
 						</div>

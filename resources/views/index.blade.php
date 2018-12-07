@@ -81,7 +81,15 @@
 	// membuat Event Listener untuk memanggil fungsi initialize pada saat halaman selesai di load
 	google.maps.event.addDomListener(window, 'load', initialize);
 	</script>
+	<script type="text/javascript">
+		function cekAuto() {
+		  var checkBox = document.getElementById("automatic");
 
+		  if (checkBox.checked == true){
+		    document.getElementById("asal").disabled = true;
+		  }
+		}
+	</script>
 </head>
 <body>
 
@@ -99,7 +107,6 @@
 						<div class="logo_container">
 							<div class="logo">
 								<div>destino</div>
-								<div>travel agency</div>
 								<div class="logo_image"><img src="{{asset('template/images/logo.png')}}" alt=""></div>
 							</div>
 						</div>
@@ -107,8 +114,9 @@
 						<!-- Main Navigation -->
 						<nav class="main_nav ml-auto">
 							<ul class="main_nav_list">
-								<li class="main_nav_item active"><a href="#">Home</a></li>
-								<li class="main_nav_item"><a href="#find">Find</a></li>
+								<li class="main_nav_item active"><a href="{{url('/')}}">Home</a></li>
+								<li class="main_nav_item"><a href="{{url('/#find')}}">Find</a></li>
+								<li class="main_nav_item"><a href="{{url('/#info')}}">Info</a></li>
 							</ul>
 						</nav>
 
@@ -195,17 +203,24 @@
 				</div>
 				<div class="col-12">
 					<div class="find_title text-center"><?php if (isset($weather)) {
-						echo $weather->item->condition->text." (".$weather->item->condition->temp."F)";
+						echo $weather->item->condition->text." (".$weather->item->condition->temp." &#8457)";
 						echo "<br>".$weather->location->city;
 					}
 					?></div>
 				</div>
-				<div class="col-md-6 offset-md-3">
+				<div class="col-md-10 offset-md-1">
 					<div class="find_form_container">
 						<form action="{{url('/find')}}" id="find_form" class="find_form d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-md-between justify-content-start flex-wrap">
-							<div class="find_item col-md-8">
+							<div class="find_item col-md-6">
+								<div>Origin:</div>
+								<input type="text" name="asal" value="{{ old('origin') }}" class="destination find_input" required="required" placeholder="Keyword here" id="asal">
+								<div><input type="checkbox" name="automatic" value="Automatic" id="automatic" onclick="cekAuto()"> Use location detection</div>
+							</div>
+
+							<div class="find_item col-md-6">
 								<div>Destination:</div>
 								<input type="text" name="tujuan" value="{{ old('destination') }}" class="destination find_input" required="required" placeholder="Keyword here">
+								<div>_</div>
 							</div>
 							<button class="col-md-4 button find_button">Find</button>
 						</form>
@@ -216,14 +231,31 @@
 	</div>
 	<div class="row1" id="i52ahj">
 	  <div class="cell1" id="iq88sw">
-	  	<div id="googleMap" style=""></div>
+	  	<div class="col-md-12">
+	  		
+	  		<?php 
+	  		if (isset($data['weather'])) {
+	  			echo "<strong>DETAIL :</strong><br>";
+		  		echo "Weather : <b>" .$data['weather']->item->condition->text." (".$data['weather']->item->condition->temp."&#8457)";
+			}
+			if (isset($data['address'])) {
+				echo "<br><b><u>ESTIMATED</u></b>";
+				echo "<br>from <b>".$data['origin']."</b> to <b>".$data['destination'];
+				echo "</b><br>Destination Address : <b>".$data['address'];
+			}
+
+			if (isset($data['distance']) && isset($data['time'])) {
+				echo "</b><br>Distance : <b>".(($data['distance'])/1000)." Km";
+				echo "</b><br>Time : <b>".(($data['time'])/3600)." Jam</b>";
+			}
+			?>
+	  	</div>
+	  	<br>
+	  	<div id="googleMap" class="col-md-12"></div>
 	  </div>
 	  <div class="cell1" id="iristp">
 		  <?php
-		  if (isset($data['weather'])) {
-		  	echo $weather->item->condition->text." (".$weather->item->condition->temp."F)";
-						echo "<br>".$weather->location->city;
-		  }
+		  
 			  if(isset($data['result'])){?>
 				  <table>
 				  <?php foreach($data['result'] as $tweet) { ?>
@@ -244,7 +276,7 @@
 
 
 	<!--  -->
-	<div class="top pb-0">
+	<div class="top pb-0" id="info">
 		<div class="container">
 			<div class="row">
 				<div class="col">
@@ -268,8 +300,8 @@
 			<div class="row">
 				<div class="col">
 					<div class="section_title text-center">
-						<h2>Top destinations in Europe</h2>
-						<div>take a look at these offers</div>
+						<h2>Top destinations</h2>
+						<div>Discover New World</div>
 					</div>
 				</div>
 			</div>
@@ -282,7 +314,6 @@
 						<a href="#">
 							<div class="top_item_image"><img src="{{asset('template/images/top_1.jpg')}}" alt="https://unsplash.com/@sgabriel"></div>
 							<div class="top_item_content">
-								<div class="top_item_price">From $890</div>
 								<div class="top_item_text">Paris, France</div>
 							</div>
 						</a>
@@ -296,7 +327,6 @@
 						<a href="#">
 							<div class="top_item_image"><img src="{{asset('template/images/top_2.jpg')}}" alt="https://unsplash.com/@jenspeter"></div>
 							<div class="top_item_content">
-								<div class="top_item_price">From $890</div>
 								<div class="top_item_text">Italian Riviera</div>
 							</div>
 						</a>
@@ -310,7 +340,6 @@
 						<a href="#">
 							<div class="top_item_image"><img src="{{asset('template/images/top_3.jpg')}}" alt="https://unsplash.com/@anikindimitry"></div>
 							<div class="top_item_content">
-								<div class="top_item_price">From $890</div>
 								<div class="top_item_text">Cinque Terre</div>
 							</div>
 						</a>
@@ -324,7 +353,6 @@
 						<a href="#">
 							<div class="top_item_image"><img src="{{asset('template/images/top_4.jpg')}}" alt="https://unsplash.com/@hellolightbulb"></div>
 							<div class="top_item_content">
-								<div class="top_item_price">From $890</div>
 								<div class="top_item_text">Santorini, Greece</div>
 							</div>
 						</a>
@@ -378,7 +406,6 @@
 							<a href="offers.html">
 								<img src="{{asset('template/images/popular_1.jpg')}}" alt="image by Egzon Bytyqi">
 								<div class="popular_item_content">
-									<div class="popular_item_price">From $890</div>
 									<div class="popular_item_title">Turkey</div>
 								</div>
 							</a>
@@ -389,7 +416,6 @@
 							<a href="offers.html">
 								<img src="{{asset('template/images/popular_2.jpg')}}" alt="https://unsplash.com/@michael75">
 								<div class="popular_item_content">
-									<div class="popular_item_price">From $890</div>
 									<div class="popular_item_title">Hawai</div>
 								</div>
 							</a>
@@ -400,7 +426,6 @@
 							<a href="offers.html">
 								<img src="{{asset('template/images/popular_3.jpg')}}" alt="https://unsplash.com/@sapegin">
 								<div class="popular_item_content">
-									<div class="popular_item_price">From $890</div>
 									<div class="popular_item_title">Ireland</div>
 								</div>
 							</a>
@@ -411,7 +436,6 @@
 							<a href="offers.html">
 								<img src="{{asset('template/images/popular_4.jpg')}}" alt="https://unsplash.com/@kensuarez">
 								<div class="popular_item_content">
-									<div class="popular_item_price">From $890</div>
 									<div class="popular_item_title">Thailand</div>
 								</div>
 							</a>
@@ -422,7 +446,6 @@
 							<a href="offers.html">
 								<img src="{{asset('template/images/popular_5.jpg')}}" alt="https://unsplash.com/@noahbasle">
 								<div class="popular_item_content">
-									<div class="popular_item_price">From $890</div>
 									<div class="popular_item_title">Croatia</div>
 								</div>
 							</a>
@@ -433,7 +456,6 @@
 							<a href="offers.html">
 								<img src="{{asset('template/images/popular_6.jpg')}}" alt="https://unsplash.com/@seb">
 								<div class="popular_item_content">
-									<div class="popular_item_price">From $890</div>
 									<div class="popular_item_title">Bali</div>
 								</div>
 							</a>
@@ -444,7 +466,6 @@
 							<a href="offers.html">
 								<img src="{{asset('template/images/popular_7.jpg')}}" alt="https://unsplash.com/@nevenkrcmarek">
 								<div class="popular_item_content">
-									<div class="popular_item_price">From $890</div>
 									<div class="popular_item_title">France</div>
 								</div>
 							</a>
@@ -455,7 +476,6 @@
 							<a href="offers.html">
 								<img src="{{asset('template/images/popular_8.jpg')}}" alt="https://unsplash.com/@bergeryap87">
 								<div class="popular_item_content">
-									<div class="popular_item_price">From $890</div>
 									<div class="popular_item_title">Vietnam</div>
 								</div>
 							</a>
@@ -585,7 +605,6 @@
 						<div class="logo_container">
 							<div class="logo">
 								<div>destino</div>
-								<div>travel agency</div>
 								<div class="logo_image"><img src="{{asset('template/images/logo.png')}}" alt=""></div>
 							</div>
 						</div>

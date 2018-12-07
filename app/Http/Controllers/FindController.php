@@ -16,15 +16,32 @@ class FindController extends Controller
     }
     public function find(){
         $destination = Input::get('tujuan');
-        $weathe = $this->findWeather($destination);
+        $origin = Input::get('asal');
+        $auto = Input::get('automatic');
+
+        $weathe = $this->findWeather($destination,'','');
         $twitter = $this->findTwitter($destination);
-        $lat=$this->currentLoc()['lat'];
-        $lng=$this->currentLoc()['lng'];
-        $weather = $this->findWeather('',$lat,$lng);
+        $latOri=$this->currentLoc()['lat'];
+        $lngOri=$this->currentLoc()['lng'];
         $lat = $this->findLoc($destination)['lat'];
         $lng = $this->findLoc($destination)['lng'];
+        
+        if (isset($auto)) {
+            $calculate = $this->calculate($latOri, $lngOri, $lat, $lng);
+        }else{
+            $latDes = $this->findLoc($origin)['lat'];
+            $lngDes = $this->findLoc($origin)['lng'];
+            $calculate = $this->calculate($latOri, $lngOri, $latDes, $lngDes);
+        }
+
+        $weather = $this->findWeather($this->currentLoc()['city']);
         $data['weather'] = $weathe;
         $data['result'] = $twitter;
+        $data['distance'] = $calculate['dis'];
+        $data['time'] = $calculate['time'];
+        $data['address'] = $this->findLoc($destination)['address'];
+        $data['origin'] = $origin;
+        $data['destination'] = $destination;
         return view('index',compact('data','weather','lat','lng'));
     }
 
@@ -62,12 +79,13 @@ class FindController extends Controller
         $loc = json_decode($loc);
         $data['lat'] = $loc->location->lat;
         $data['lng'] = $loc->location->lng;
+        $data['city'] = $loc->location->city;
         return $data;
     }
     function findWeather($des='', $lat='',$lng=''){
         $loc='';
         if ($des!='') {
-            $loc=$des;
+            $loc=$this->findLoc($des)['city'];
         }elseif ($lat!='' && $lng!='') {
             $loc="(".$lat."%2C%20".$lng.")";
         }
@@ -82,20 +100,27 @@ class FindController extends Controller
     }
 
     function findLoc($des){
-        $url = "https://geocoder.api.here.com/6.2/geocode.json?app_id=e9tAZjgniOoU3sDIkXdk&app_code=GBpbrP3AtORjbt_OYWOk5w&searchtext=".$des;
+        $url = "https://geocoder.api.here.com/6.2/geocode.json?app_id=e9tAZjgniOoU3sDIkXdk&app_code=GBpbrP3AtORjbt_OYWOk5w&searchtext=".rawurlencode($des);
         $session = curl_init($url);
         curl_setopt($session, CURLOPT_RETURNTRANSFER,true);
         $loc = curl_exec($session);
         $loc = json_decode($loc);
         $data= $loc->Response->View;
-        $res = $data[0]->Result;
-        $data['lat'] = $res[0]->Location->DisplayPosition->Latitude;
-        $data['lng'] = $res[0]->Location->DisplayPosition->Longitude;
+        if (isset($data)) {
+            $res = $data[0]->Result;
+            $data['lat'] = $res[0]->Location->DisplayPosition->Latitude;
+            $data['lng'] = $res[0]->Location->DisplayPosition->Longitude;
+            $data['city']= $res[0]->Location->Address->City;
+            $data['address'] = $res[0]->Location->Address->Label;
+        }else{
+            $data['address'] = 'Not Found';
+        }
+        
         return $data;
     }
 
     function calculate($latOri,$lngOri, $lat, $lng){
-        $url = "https://wse.api.here.com/2/findsequence.json?start=geo!".$latOri.",".$lngOri."&end=geo!".$lat.",".$lng."&mode=fastest;car&app_id=e9tAZjgniOoU3sDIkXdk&app_code=GBpbrP3AtORjbt_OYWOk5w";
+        $url = "https://wse.api.here.com/2/findsequence.json?start=geo!".$latOri.",".$lngOri."&end=geo!".$lat.",".$lng."&mode=fastest;car&app_id=hIfV710Oo8jhVfyDNPq5&app_code=HeNHNicFMHT7RRIbwVBm2Q";
         $session = curl_init($url);
         curl_setopt($session, CURLOPT_RETURNTRANSFER,true);
         $loc = curl_exec($session);
@@ -103,7 +128,7 @@ class FindController extends Controller
         // var_dump($loc);
         $res= $loc->results;
         $data['dis'] = $res[0]->distance;
-        $data['time'] = $res[0]->distance;
+        $data['time'] = $res[0]->time;
         return $data;
     }
 }
