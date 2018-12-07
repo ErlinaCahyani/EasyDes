@@ -38,12 +38,10 @@
 	}
 	#iristp{
 	flex-basis:500px;
+	border: 1 px;
+	border-style: solid;
 	overflow: auto;
 	height: 700 px;
-  margin: 2em;
-    border:  none;
-    border-left: 1px solid #e2dede;
-    padding: 1em 3em 1em 3em;
 	}
 	@media (max-width: 768px){
 	.row{
@@ -77,7 +75,7 @@
 						<!-- Main Navigation -->
 						<nav class="main_nav ml-auto">
 							<ul class="main_nav_list">
-								<li class="main_nav_item active"><a href="./">Home</a></li>
+								<li class="main_nav_item active"><a href="#">Home</a></li>
 								<li class="main_nav_item"><a href="#find">Find</a></li>
 							</ul>
 						</nav>
